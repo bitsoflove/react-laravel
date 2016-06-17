@@ -33,6 +33,9 @@
     private function getReact () {
       if ($this->react === null) {
         $this->react = new \ReactJS($this->reactSource, $this->componentsSource);
+        $this->react->setErrorHandler(function($e) {
+          throw $e;
+        });
       }
       return $this->react;
     }
@@ -61,7 +64,7 @@
       $htmlAttributes = array_diff_key($options, $this->defaultOptions);
       $htmlAttributesString = $this->arrayToHTMLAttributes($htmlAttributes);
 
-      return "<{$tag} data-react-class='{$component}' data-react-props='{$props}' {$htmlAttributesString}>{$markup}</{$tag}>";
+      return "<{$tag} {$htmlAttributesString}>{$markup}</{$tag}>";
     }
 
     /**
