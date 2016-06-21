@@ -21,6 +21,7 @@
       $this->componentsSource = $componentsSource;
       $this->defaultOptions = [
         'prerender' => true,
+        'withEncodedProps' => false,
         'tag' => 'div'
       ];
     }
@@ -62,6 +63,9 @@
 
       // Gets all values that aren't used as options and map it as HTML attributes
       $htmlAttributes = array_diff_key($options, $this->defaultOptions);
+      if ($options['withEncodedProps'] === true) {
+        $htmlAttributes['data-props'] = $props;
+      }
       $htmlAttributesString = $this->arrayToHTMLAttributes($htmlAttributes);
 
       return "<{$tag} {$htmlAttributesString}>{$markup}</{$tag}>";
