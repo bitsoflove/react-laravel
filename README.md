@@ -115,3 +115,8 @@ Your `components.js` file should also be included at your view, and all your com
 # Thanks
 
 This package is inspired at [react-rails](https://github.com/reactjs/react-rails).
+
+
+---
+    
+<a href="https://rollbar.com"><img src="https://rollbar.com/assets/badges/rollbar-partner-badge-dark.png" alt="Rollbar Error Tracking" /></a>
